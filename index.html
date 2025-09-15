@@ -89,6 +89,19 @@
             overflow: hidden;
         }
 
+        /* 修正 Highlights 部分占据整屏的问题 */
+        .hero#highlights {
+            min-height: auto;
+            padding: 40px 0;
+            justify-content: flex-start;
+        }
+
+        /* 减少 Highlights 和 Performance 部分之间的间距 */
+        .hero#performance {
+            padding-top: 20px;
+            min-height: auto;
+        }
+
         /* 首屏特殊布局调整 */
         .hero#overview {
             padding-top: 40px;
@@ -153,8 +166,6 @@
 
         /* Open Access 模块间距调整 */
         .open-access-section {
-            padding-top: 30px;
-            padding-bottom: 30px;
             min-height: auto;
         }
 
@@ -1128,7 +1139,7 @@
         .scatter-chart-container {
             max-width: 800px !important;
             margin: 0 auto !important;
-            padding: 40px 0px !important;
+            padding: 10px 0px !important;
             width: 100% !important;
             box-sizing: border-box !important;
             overflow-x: auto !important;
@@ -1300,7 +1311,7 @@
             .scatter-chart-container {
                 max-width: 800px !important;
                 margin: 0 auto !important;
-                padding: 40px 0px !important;
+                padding: 10px 0px !important;
             }
 
             .scatter-chart {
@@ -1454,6 +1465,11 @@
                 overflow-x: hidden;
                 word-wrap: break-word;
                 overflow-wrap: break-word;
+            }
+
+            .hero#highlights {
+                min-height: auto;
+                padding: 20px 0;
             }
 
             /* 移动端星空优化 */
@@ -1907,7 +1923,7 @@
         </section>
 
         <!-- Highlights -->
-        <section class="hero">
+        <section class="hero" id="highlights">
             <div class="container">
                 <p class="hero-description">
                     Today, we're thrilled to announce two <strong class="highlight-groundbreaking">🚀 groundbreaking
