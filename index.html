@@ -2106,10 +2106,8 @@
                     Moreover, before RL, we innovatively introduced an RFT stage with "teacher trajectories" annotated
                     by human engineers as guidance during training.</p>
 
-                <p><strong>🎯 Agentic RL Scaling:</strong> Scaling agentic RL hinges on three challenges: efficient
-                    learning over nonlinear trajectory histories, leveraging intrinsic model signals, and building
-                    scalable high-throughput infrastructure. We address these with a multi-level prefix caching
-                    mechanism, entropy-based trajectory pruning, and SeamlessFlow architecture.</p>
+                <p><strong>🎯 Agentic RL Scaling:</strong> Scaling agentic RL hinges on three challenges: efficient learning over nonlinear trajectory histories, leveraging intrinsic model signals, and building scalable high-throughput infrastructure. 
+                    We address these with prefix caching on logprob computation, entropy-based trajectory pruning, and SeamlessFlow architecture.</p>
             </div>
         </div>
     </section>
@@ -2247,24 +2245,6 @@
                 <h2 class="hero-subtitle">Agentic RL Scaling</h2>
 
                 <div class="hero-description">
-                    <div class="agentic-rl-section">
-                        <h3>Prefix Caching Inside the Training Engine</h3>
-                        <p>In agentic RL, collecting an agent's full execution trajectories and training on them is
-                            crucial for on policy training. However, because agents generate vast, highly branched
-                            trajectories with substantial token overlap, naïvely training on all raw traces wastes
-                            compute. To improve efficiency, we compress the trajectory corpus into a shared-fragment
-                            trajectory prefix tree—and implement prefix caching directly inside the training engine's
-                            forward and backward passes. On this basis, we treat each node in the tree as a basic
-                            training unit. This effectively avoids redundant computation on repeated trajectory
-                            fragments and improves overall training efficiency. Overall, this design improves the
-                            computational speed of policy updates by a factor of O(m), where m is the depth of the
-                            trajectory tree. The slimmer (i.e., more chain-like) the tree structure, the greater the
-                            performance gain. Compared with prefix caching during inference, prefix caching in training
-                            requires substantially more memory. To address this, we design a multi-level caching
-                            mechanism that pipelines cache reads/writes with computation, thereby overlapping operations
-                            and achieving near-zero performance overhead for caching.</p>
-                    </div>
-
                     <div class="agentic-rl-section">
                         <h3>Entropy Based Tree Pruning</h3>
                         <p>Even with the above mentioned technique, performing training through all tokens in the full
