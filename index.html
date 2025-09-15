@@ -2247,19 +2247,13 @@
                 <div class="hero-description">
                     <div class="agentic-rl-section">
                         <h3>Entropy Based Tree Pruning</h3>
-                        <p>Even with the above mentioned technique, performing training through all tokens in the full
-                            tree still remains prohibitively expensive. Thus, we need a mechanism to prioritize nodes
-                            that carry the strongest training signals.</p>
-                        <p>To this end, we compress trajectories into a prefix tree where each node represents a shared
-                            prefix and each edge corresponds to a segment of tokens. Under a fixed compute budget, the
-                            goal is to retain only the most valuable nodes for training. We estimate the informativeness
-                            of nodes based on entropy signals aggregated across the tree and their likelihood of being
-                            reached, and then prune the tree by expanding nodes in order of importance until the budget
-                            is exhausted. Additional heuristics ensure that structurally important regions (e.g., tool
-                            or memory events) are preserved and that local context is maintained for stable training.
-                            This entropy-based pruning enables us to substantially reduce redundant computation while
-                            retaining most of the effective training signal, leading to significant throughout gains and
-                            lower overall cost.</p>
+                        <p>Even with the above mentioned technique, performing training through all tokens in the full tree still remains prohibitively expensive. 
+                            Thus, we need a mechanism to prioritize nodes that carry the strongest training signals.</p>
+                        <p>To this end, we compress trajectories into a prefix tree where each node represents a shared prefix and each edge corresponds to a segment of tokens. 
+                            Under a fixed compute budget, the goal is to retain only the most valuable nodes for training. 
+                            We estimate the informativeness of nodes based on entropy signals aggregated across the tree and their likelihood of being reached, and then prune the tree by expanding nodes in order of importance until the budget is exhausted. 
+                            Additional heuristics ensure that structurally important regions (e.g., tool or memory events) are preserved and that local context is maintained for stable training. 
+                            This entropy-based pruning enables us to substantially reduce redundant computation while retaining most of the effective training signal, leading to significant throughout gains and lower overall cost.</p>
                     </div>
 
                     <div class="agentic-rl-section">
@@ -2268,13 +2262,9 @@
                             <img src="case-pic/pic-3.png" alt="Agentic RL Scaling Architecture"
                                 style="max-width: 800px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
                         </figure>
-                        <p>To scale RL, it is essential to fully decouple RL training from the diverse internal logic of
-                            agents, while also maximizing the utilization of heterogeneous computational architectures.
-                            Following the design of SeamlessFlow, we implemented an intermediate layer between agents
-                            and RL training dedicated to trajectory-tree management, ensuring strict separation between
-                            the two. In addition, we adopted the proposed tag-driven scheduling mechanism to
-                            orchestrate task allocation across heterogeneous clusters, thereby minimizing pipeline
-                            bubbles and sustaining high-throughput training.</p>
+                        <p>To scale RL, it is essential to fully decouple RL training from the diverse internal logic of agents, while also maximizing the utilization of heterogeneous computational architectures. 
+                            Following the design of SeamlessFlow, we implemented an intermediate layer between agents and RL training dedicated to trajectory-tree management, ensuring strict separation between the two. 
+                            In addition, we adopted the proposed tag-driven scheduling mechanism to orchestrate task allocation across heterogeneous clusters, thereby minimizing pipeline bubbles and sustaining high-throughput training. </p>
                     </div>
 
                     <div class="agentic-rl-section">
